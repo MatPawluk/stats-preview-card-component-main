@@ -1,0 +1,123 @@
+// $main_paragraph: hsla(0, 0%, 100%, 0.75);
+// $white: #ffffff;
+// $stat_headings: hsla(0, 0%, 100%, 0.6);
+
+@use "./reset" as *;
+@use "./colors" as *;
+
+body {
+  background-color: hsl(233, 47%, 7%);
+  color: $white;
+  font-size: 15px;
+  font-family: "Lexend Deca", sans-serif;
+  height: 100vh;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-direction: column;
+  position: relative;
+}
+
+//Cards
+
+.card {
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: center;
+  justify-content: center;
+  max-width: 320px;
+  background-color: $purple_dark;
+  text-align: center;
+  border-radius: 10px;
+  overflow: hidden;
+  margin-top: 20px;
+
+  @media screen and (min-width: 992px) {
+    flex-direction: row;
+    max-width: 800px;
+  }
+
+  //Images
+
+  &__right {
+    background-color: $purple;
+    overflow: hidden;
+
+    &-mobile {
+      display: block;
+    }
+
+    img {
+      width: 120%;
+      opacity: 0.5;
+    }
+
+    &-desktop {
+      display: none;
+    }
+
+    @media screen and (min-width: 992px) {
+      &-mobile {
+        display: none;
+      }
+      &-desktop {
+        display: block;
+      }
+    }
+  }
+
+  // Left Card
+
+  &__left {
+    padding: 30px 15px;
+
+    //Heading and discription
+
+    &-text {
+      h1 {
+        font-weight: 400;
+        margin-bottom: 20px;
+
+        span {
+          color: $purple_light;
+        }
+      }
+      p {
+        color: $main_paragraph;
+        margin-bottom: 40px;
+      }
+      @media screen and (min-width: 992px) {
+        text-align: left;
+      }
+    }
+
+    &-stats {
+      &-value {
+        p {
+          color: $main_paragraph;
+          font-family: "Inter", sans-serif;
+          font-weight: 400;
+          margin-bottom: 20px;
+          margin-top: 5px;
+          text-transform: uppercase;
+        }
+        h2 {
+          font-weight: 400;
+        }
+      }
+
+      @media screen and (min-width: 992px) {
+        display: flex;
+        justify-content: left;
+        gap: 30px;
+        flex-direction: row;
+        text-align: left;
+      }
+    }
+
+    @media screen and (min-width: 992px) {
+      width: 80%;
+      padding: 30px 60px 30px 60px;
+    }
+  }
+}
